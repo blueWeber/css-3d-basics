@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS: 3D</title>
+    <style>
+      * {
+        margin: 0;
+      }
+      html,
+      body {
+        height: 100vh;
+      }
+      body {
+        display: grid;
+        place-items: center;
+      }
+      /*  */
+      #main {
+        width: 800px;
+        height: 800px;
+        border: 1px dashed black;
+        position: relative;
+        perspective: 500px;
+      }
+      /*  */
+      #container {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        border: 5px dashed orange;
+        /* transform: translate(-50%, -50%); */
+        transform: translate(-50%, -50%) rotateY(45deg);
+        /* transform-style: preserve-3d; */
+      }
+
+      /*  */
+      .box {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+      }
+      #box-1 {
+        background: red;
+        left: 0px;
+        top: 0px;
+        /* transform: rotateY(45deg); */
+        transform: perspective(500px) rotateY(70deg);
+        transform-origin: center left;
+      }
+      #box-2 {
+        background: green;
+        right: 0px;
+        top: 0px;
+        /* transform: rotateY(45deg); */
+        transform: perspective(500px) rotateY(-70deg);
+        transform-origin: center right;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <div id="container">
+        <div id="box-1" class="box"></div>
+        <div id="box-2" class="box"></div>
+      </div>
+    </div>
+  </body>
+</html>

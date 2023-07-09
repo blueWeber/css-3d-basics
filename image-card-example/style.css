@@ -1,0 +1,94 @@
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+img {
+  max-width: 100%;
+}
+
+.container {
+  margin-inline: auto;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.card {
+  flex: 0 0 30%;
+  position: relative;
+  perspective: 400px;
+  /*  */
+  /* figure와 description의 공간감 깊이 차이를 위해서 */
+  transform-style: preserve-3d;
+}
+.card figure {
+  margin: 0;
+  position: relative;
+  /* 비교1 */
+  /* transform-style: inherit; */
+  transform-style: preserve-3d;
+  /* 비교2 */
+  /* perspective: 400px; */
+}
+.card figure img {
+  display: block;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+.card figure img + img {
+  position: absolute;
+  inset: 0 auto auto 0;
+}
+.card figure img:first-child {
+  transform: rotateY(0deg);
+}
+.card figure img + img {
+  transform: rotateY(0deg);
+}
+
+.description {
+  position: absolute;
+  inset: auto auto 30px 0;
+  width: 100%;
+  color: #fff;
+  z-index: 1;
+  text-align: center;
+  perspective: 400px;
+  /* transform-style: inherit; */
+  transform-style: preserve-3d;
+}
+.description h3 {
+  font-weight: 400;
+  transition: all 0.3s ease-in-out;
+  font-size: 30px;
+  margin: 0;
+  text-align: center;
+  opacity: 0.1;
+}
+.description h3 + h3 {
+  position: absolute;
+  inset: 0 auto auto 0;
+  transform: rotateY(0deg);
+  width: 100%;
+}
+.description h3:first-child {
+  transform: rotateY(0deg);
+}
+
+.card figure img:first-child {
+  transform: rotateY(45deg);
+}
+.card figure img + img {
+  transform: rotateY(-45deg);
+}
+.card .description h3:first-child {
+  transform: rotateY(45deg) translateZ(10px);
+  opacity: 1;
+}
+.card .description h3 + h3 {
+  transform: rotateY(-45deg) translateZ(10px);
+  opacity: 1;
+}
